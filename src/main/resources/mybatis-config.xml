@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <package name="com.lin.pojo"/>
+    </typeAliases>
+    <mappers>
+        <mapper resource="com/lin/dao/Mapper.xml"/>
+        <mapper resource="com/lin/dao/ResponMapper.xml"/>
+        <mapper resource="com/lin/dao/HelpMapper.xml"/>
+        <mapper resource="com/lin/dao/ShopMapper.xml"/>
+        <mapper resource="com/lin/dao/UserMapper.xml"/>
+    </mappers>
+
+</configuration>
