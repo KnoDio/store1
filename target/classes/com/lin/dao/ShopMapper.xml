@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lin.dao.ShopMapper">
+
+    <insert id="addShop" parameterType="com.lin.pojo.Shop">
+      insert into ssmbuild.shop(id,name,price,details,picture,picture2,picture3,username)
+      values (#{id}, #{name}, #{price},#{details},#{picture},#{picture2},#{picture3},#{username})
+    </insert>
+    <select id="queryAllShop" resultType="com.lin.pojo.Shop">
+        select * from ssmbuild.shop
+    </select>
+    <select id="querry" parameterType="java.lang.String" resultType="com.lin.pojo.Shop">
+        select * from ssmbuild.shop where name like concat(concat('%',#{name}),'%')
+    </select>
+    <select id="queryByid" resultType="com.lin.pojo.Shop">
+        select  * from  ssmbuild.shop where id = #{id}
+    </select>
+    <delete id="deleteShopById">
+        delete from ssmbuild.shop where loadid = #{loadid}
+    </delete>
+</mapper>
