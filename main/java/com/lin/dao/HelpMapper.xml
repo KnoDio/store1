@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lin.dao.HelpMapper">
+    <insert id="add" parameterType="com.lin.pojo.Help">
+         insert into ssmbuild.helptable(uid,helpmessage,details)
+         values (#{uid},#{helpmessage},#{details})
+    </insert>
+
+    <select id="query2" parameterType="java.lang.String" resultType="com.lin.pojo.Help">
+        select * from ssmbuild.helptable where helptable.helpmessage like concat(concat('%',#{name}),'%')
+    </select>
+
+    <select id="query_link"  resultMap="hhh">
+          select * from ssmbuild.helptable h,ssmbuild.respontable r
+          where h.id=r.uid and h.id = #{uid}
+    </select>
+
+    <resultMap id="hhh" type="com.lin.pojo.Respon">
+        <result property="responmessage" column="resmessge"/>
+    </resultMap>
+
+    <select id="query"  resultType="com.lin.pojo.Help">
+        select * from ssmbuild.helptable
+    </select>
+
+    <select id="queryById" resultType="com.lin.pojo.Help">
+        select * from  ssmbuild.helptable where uid = #{uid}
+    </select>
+
+    <delete id="delete">
+        delete from ssmbuild.helptable where id=#{id}
+    </delete>
+</mapper>
